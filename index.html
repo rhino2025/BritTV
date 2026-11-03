@@ -70,20 +70,20 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center space-x-1">
-        <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-indigo-400 bg-indigo-950/60 border border-indigo-800/50">
+        <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-indigo-400 bg-indigo-950/60 border border-indigo-800/50 cursor-pointer">
           <i class="fa-solid fa-house mr-1.5"></i>Home
         </button>
-        <button onclick="switchTab('setup')" id="nav-setup" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800">
+        <button onclick="switchTab('setup')" id="nav-setup" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer">
           <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-amber-400"></i>Setup Guides
         </button>
-        <button onclick="switchTab('guides')" id="nav-guides" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800">
+        <button onclick="switchTab('guides')" id="nav-guides" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer">
           <i class="fa-solid fa-book-open mr-1.5 text-cyan-400"></i>User Guides
         </button>
-        <button onclick="switchTab('install')" id="nav-install" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 relative">
+        <button onclick="switchTab('install')" id="nav-install" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 relative cursor-pointer">
           <i class="fa-solid fa-shield-halved mr-1.5 text-purple-400"></i>Installation Guides
           <span class="ml-1.5 text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-purple-900/60 text-purple-300 border border-purple-700">Protected</span>
         </button>
-        <button onclick="switchTab('apps')" id="nav-apps" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800">
+        <button onclick="switchTab('apps')" id="nav-apps" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer">
           <i class="fa-solid fa-cubes mr-1.5 text-indigo-400"></i>Supported Apps
         </button>
       </nav>
@@ -124,7 +124,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-2 overflow-hidden">
         <span class="px-2 py-0.5 rounded bg-indigo-600 text-white text-[10px] font-extrabold uppercase tracking-wider">Notice</span>
-        <span id="announcement-text" class="truncate font-medium text-slate-200">Welcome to BritTV Help! Dedicated Setup Guides for Firestick and Xiaomi TV sticks are now live.</span>
+        <span id="announcement-text" class="truncate font-medium text-slate-200">Welcome to BritTV Help! Out-of-the-box physical setup guides for Firestick and Xiaomi sticks are now available.</span>
       </div>
       <button onclick="document.getElementById('announcement-bar').classList.add('hidden')" class="text-slate-400 hover:text-white pl-2">
         <i class="fa-solid fa-xmark"></i>
@@ -148,11 +148,11 @@
               Smart TV & Streaming App <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Setup Hub</span>
             </h1>
             <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-              Step-by-step guides for Firestick, Xiaomi TV Sticks, BritTV Player, M3U configurations, EPG setup, and Smart TV app installations.
+              Complete physical installation guides, device unboxing steps, and app sideloading instructions for Firestick and Xiaomi TV sticks.
             </p>
             <div class="mt-8 flex flex-wrap gap-4">
               <button onclick="switchTab('setup')" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-lg shadow-amber-500/20 transition flex items-center cursor-pointer">
-                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> View Setup Guides
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Device Setup Guides
               </button>
               <button onclick="switchTab('guides')" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-lg shadow-indigo-600/30 transition flex items-center cursor-pointer">
                 <i class="fa-solid fa-book-open mr-2 text-cyan-300"></i> Open User Guides
@@ -168,8 +168,8 @@
             <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 border border-amber-500/30">
               <i class="fa-solid fa-wand-magic-sparkles"></i>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Dedicated Setup Guides</h3>
-            <p class="text-slate-400 text-sm">Step-by-step sideloading and initial app configurations specifically tailored for Firestick and Xiaomi TV sticks.</p>
+            <h3 class="text-lg font-bold text-white mb-2">Device Setup Guides</h3>
+            <p class="text-slate-400 text-sm">Step-by-step physical unboxing, TV plugging, power connection, remote pairing, and app sideloading for Firestick and Xiaomi sticks.</p>
           </div>
 
           <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 shadow-sm hover:border-indigo-500/50 transition cursor-pointer" onclick="switchTab('guides')">
@@ -191,130 +191,164 @@
       </div>
     </section>
 
-    <!-- SECTION 2: DEDICATED SETUP GUIDES (Firestick & Xiaomi) -->
+    <!-- SECTION 2: DEDICATED SETUP GUIDES (Firestick & Xiaomi Physical & App Setup) -->
     <section id="section-setup" class="tab-content hidden">
       <div class="bg-slate-900 text-white py-12 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-block mb-3">
-            <i class="fa-solid fa-tv mr-1.5"></i> Hardware Setup Hub
+            <i class="fa-solid fa-tv mr-1.5"></i> Out-of-the-Box Hardware Installation
           </span>
           <h1 class="text-3xl font-extrabold mb-2">Firestick & Xiaomi TV Stick Setup Guides</h1>
-          <p class="text-slate-400 max-w-2xl text-sm sm:text-base">
-            Detailed hardware preparation, developer options unlocking, and Downloader app configurations for Amazon Fire TV and Xiaomi Stick devices.
+          <p class="text-slate-400 max-w-3xl text-sm sm:text-base">
+            Complete physical installation walkthroughs—from unboxing and plugging into your television to Wi-Fi connection, remote pairing, developer options, and app sideloading codes.
           </p>
         </div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
-          <!-- FIRESTICK SETUP CARD -->
-          <div class="bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl space-y-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center space-x-3 mb-4">
-                <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl border border-amber-500/30">
-                  <i class="fa-solid fa-fire"></i>
-                </div>
-                <div>
-                  <h2 class="text-2xl font-extrabold text-white">Amazon Firestick Setup</h2>
-                  <span class="text-xs text-slate-400">Fire TV Cube, Stick 4K & Lite models</span>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        
+        <!-- FIRESTICK COMPLETE SETUP GUIDE -->
+        <div class="bg-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-xl space-y-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+            <div class="flex items-center space-x-4">
+              <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl border border-amber-500/30 shrink-0">
+                <i class="fa-solid fa-fire"></i>
               </div>
-
-              <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 mb-6">
-                <span class="font-bold text-white block mb-1"><i class="fa-solid fa-circle-exclamation text-amber-400 mr-1"></i> Requirement:</span>
-                Fire OS 6.0+, Active internet connection, and Amazon remote.
-              </div>
-
-              <div class="space-y-4 text-sm text-slate-300">
-                <div class="flex items-start space-x-3">
-                  <span class="w-6 h-6 rounded-full bg-indigo-600/20 text-indigo-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
-                  <div>
-                    <strong class="text-white block">Install Downloader App</strong>
-                    Go to the Amazon Appstore on your Firestick home screen, search for "Downloader" by AFTVnews, and click Get/Install.
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-3">
-                  <span class="w-6 h-6 rounded-full bg-indigo-600/20 text-indigo-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
-                  <div>
-                    <strong class="text-white block">Enable Unknown Sources</strong>
-                    Go to Settings > My Fire TV > Developer Options (if hidden, click About > Fire TV Stick 7 times). Turn on "Install Unknown Apps" for Downloader.
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-3">
-                  <span class="w-6 h-6 rounded-full bg-indigo-600/20 text-indigo-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
-                  <div>
-                    <strong class="text-white block">Enter Downloader Code</strong>
-                    Open Downloader, type shortcode <code class="bg-slate-950 px-2 py-0.5 rounded text-amber-400 font-mono font-bold">94821</code> in the URL box, and click Go to download and install BritTV.
-                  </div>
-                </div>
+              <div>
+                <span class="text-xs font-bold uppercase text-amber-400 tracking-wider">Amazon Hardware Guide</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Amazon Fire TV Stick Setup</h2>
               </div>
             </div>
-
-            <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
-              <span class="text-xs text-amber-400 font-mono font-bold">Code: 94821</span>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs text-slate-400 font-mono bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">Downloader Code: <strong class="text-amber-400">94821</strong></span>
               <button onclick="copyToClipboard('94821')" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition cursor-pointer">
-                <i class="fa-solid fa-copy mr-1.5"></i> Copy Firestick Code
+                <i class="fa-solid fa-copy mr-1"></i> Copy Code
               </button>
             </div>
           </div>
 
-          <!-- XIAOMI STICK SETUP CARD -->
-          <div class="bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl space-y-6 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center space-x-3 mb-4">
-                <div class="w-12 h-12 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-2xl border border-orange-500/30">
-                  <i class="fa-solid fa-bolt"></i>
-                </div>
-                <div>
-                  <h2 class="text-2xl font-extrabold text-white">Xiaomi TV Stick Setup</h2>
-                  <span class="text-xs text-slate-400">Xiaomi TV Stick 4K & Android TV Dongles</span>
-                </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Step 1 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm flex items-center justify-center mb-3">1</div>
+                <h4 class="font-bold text-white text-base mb-1">Physical Plug-In</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Plug your Firestick directly into an open <strong>HDMI port</strong> on your television. If it is tight, use the included HDMI extender cable.</p>
               </div>
-
-              <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 mb-6">
-                <span class="font-bold text-white block mb-1"><i class="fa-solid fa-circle-exclamation text-orange-400 mr-1"></i> Requirement:</span>
-                Android TV 11+, Google Play Store access.
-              </div>
-
-              <div class="space-y-4 text-sm text-slate-300">
-                <div class="flex items-start space-x-3">
-                  <span class="w-6 h-6 rounded-full bg-orange-600/20 text-orange-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
-                  <div>
-                    <strong class="text-white block">Unlock Developer Options</strong>
-                    Go to Settings > Device Preferences > About > Scroll down to Build, and press OK 7 times until it confirms developer mode is active.
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-3">
-                  <span class="w-6 h-6 rounded-full bg-orange-600/20 text-orange-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
-                  <div>
-                    <strong class="text-white block">Install Downloader from Play Store</strong>
-                    Search for "Downloader" in the Google Play Store on your Xiaomi stick and install it.
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-3">
-                  <span class="w-6 h-6 rounded-full bg-orange-600/20 text-orange-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
-                  <div>
-                    <strong class="text-white block">Enter Downloader Code</strong>
-                    Open Downloader, allow storage permissions, enter shortcode <code class="bg-slate-950 px-2 py-0.5 rounded text-orange-400 font-mono font-bold">94822</code>, and install the Xiaomi edition APK.
-                  </div>
-                </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-cyan-400 font-medium">
+                <i class="fa-solid fa-circle-check mr-1"></i> Power via wall outlet using USB cable
               </div>
             </div>
 
-            <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
-              <span class="text-xs text-orange-400 font-mono font-bold">Code: 94822</span>
-              <button onclick="copyToClipboard('94822')" class="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 text-xs font-bold transition cursor-pointer">
-                <i class="fa-solid fa-copy mr-1.5"></i> Copy Xiaomi Code
-              </button>
+            <!-- Step 2 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm flex items-center justify-center mb-3">2</div>
+                <h4 class="font-bold text-white text-base mb-1">Power & Remotes</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Connect the power adapter to a wall socket. Insert batteries into your Firestick remote; it will pair automatically with the device.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-cyan-400 font-medium">
+                <i class="fa-solid fa-circle-check mr-1"></i> Switch TV input to correct HDMI source
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm flex items-center justify-center mb-3">3</div>
+                <h4 class="font-bold text-white text-base mb-1">Wi-Fi & Account</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Follow the on-screen wizard to connect to your home <strong>Wi-Fi network</strong> and sign in with your Amazon account details.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-cyan-400 font-medium">
+                <i class="fa-solid fa-circle-check mr-1"></i> Completes initial software updates
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm flex items-center justify-center mb-3">4</div>
+                <h4 class="font-bold text-white text-base mb-1">App Sideloading</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Install <strong>Downloader</strong> from Appstore. Enable unknown sources in Developer Options, then enter code <strong class="text-amber-400">94821</strong>.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-amber-400 font-medium">
+                <i class="fa-solid fa-download mr-1"></i> Ready for BritTV streaming
+              </div>
             </div>
           </div>
-
         </div>
+
+        <!-- XIAOMI TV STICK COMPLETE SETUP GUIDE -->
+        <div class="bg-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-xl space-y-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+            <div class="flex items-center space-x-4">
+              <div class="w-14 h-14 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-2xl border border-orange-500/30 shrink-0">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold uppercase text-orange-400 tracking-wider">Xiaomi Android TV Guide</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Xiaomi TV Stick 4K / Lite Setup</h2>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs text-slate-400 font-mono bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">Downloader Code: <strong class="text-orange-400">94822</strong></span>
+              <button onclick="copyToClipboard('94822')" class="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 text-xs font-bold transition cursor-pointer">
+                <i class="fa-solid fa-copy mr-1"></i> Copy Code
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Step 1 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">1</div>
+                <h4 class="font-bold text-white text-base mb-1">HDMI & Power</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Plug the Xiaomi TV Stick into an available <strong>HDMI port</strong> on your television. Connect the micro-USB power cord to the stick and plug the adapter into a wall outlet.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-cyan-400 font-medium">
+                <i class="fa-solid fa-circle-check mr-1"></i> Power indicator LED lights up
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">2</div>
+                <h4 class="font-bold text-white text-base mb-1">Remote Pairing</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Turn on your TV and select the correct HDMI input. Press and hold the <strong>Home and Back buttons</strong> simultaneously on your Xiaomi Bluetooth remote until it pairs.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-cyan-400 font-medium">
+                <i class="fa-solid fa-circle-check mr-1"></i> On-screen pairing confirmation
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">3</div>
+                <h4 class="font-bold text-white text-base mb-1">Google TV Setup</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Select your language, connect to your Wi-Fi network, and sign in with your <strong>Google account</strong> to access the Google Play Store and system features.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-cyan-400 font-medium">
+                <i class="fa-solid fa-circle-check mr-1"></i> Access to Android TV home interface
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
+              <div>
+                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">4</div>
+                <h4 class="font-bold text-white text-base mb-1">Sideloading Apps</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">Enable Developer mode (tap Build 7 times in About settings). Install <strong>Downloader</strong> from Play Store and enter code <strong class="text-orange-400">94822</strong>.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-900 text-[11px] text-orange-400 font-medium">
+                <i class="fa-solid fa-download mr-1"></i> Ready for streaming setup
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -573,7 +607,7 @@
     <span id="toast-message" class="text-xs sm:text-sm font-semibold">Action completed successfully</span>
   </div>
 
-  <!-- JAVASCRIPT LOGIC & SWITCHTAB FUNCTION -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
     let guidesData = [
       {
@@ -625,7 +659,6 @@
       renderAdminGuidesTable();
     });
 
-    // NAVIGATION SWITCHTAB FUNCTION
     window.switchTab = function(tabId) {
       if (tabId === 'admin' && !loggedInAdmin) {
         openAuthModal();
