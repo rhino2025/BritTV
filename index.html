@@ -35,10 +35,6 @@
     }
   </script>
   <style>
-    .glass-card {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(12px);
-    }
     .line-clamp-2 {
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -96,36 +92,7 @@
         </button>
       </div>
     </div>
-
-    <!-- Mobile Nav Bar -->
-    <div class="md:hidden flex justify-around border-t border-slate-800 py-2 bg-slate-900/95">
-      <button onclick="switchTab('home')" class="flex flex-col items-center text-[11px] text-slate-300 font-medium">
-        <i class="fa-solid fa-house text-base mb-0.5 text-indigo-400"></i> Home
-      </button>
-      <button onclick="switchTab('setup')" class="flex flex-col items-center text-[11px] text-slate-300 font-medium">
-        <i class="fa-solid fa-wand-magic-sparkles text-base mb-0.5 text-amber-400"></i> Setup
-      </button>
-      <button onclick="switchTab('guides')" class="flex flex-col items-center text-[11px] text-slate-300 font-medium">
-        <i class="fa-solid fa-book-open text-base mb-0.5 text-cyan-400"></i> Guides
-      </button>
-      <button onclick="switchTab('install')" class="flex flex-col items-center text-[11px] text-slate-300 font-medium">
-        <i class="fa-solid fa-shield-halved text-base mb-0.5 text-purple-400"></i> Install
-      </button>
-    </div>
   </header>
-
-  <!-- Global Announcement Ticker -->
-  <div id="announcement-bar" class="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 text-white text-xs sm:text-sm py-2 px-4 border-b border-indigo-900/40">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-2 overflow-hidden">
-        <span class="px-2 py-0.5 rounded bg-indigo-600 text-white text-[10px] font-extrabold uppercase tracking-wider">Notice</span>
-        <span id="announcement-text" class="truncate font-medium text-slate-200">Welcome to BritTV Help! Out-of-the-box physical setup guides for Firestick and Xiaomi sticks are now available.</span>
-      </div>
-      <button onclick="document.getElementById('announcement-bar').classList.add('hidden')" class="text-slate-400 hover:text-white pl-2">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-  </div>
 
   <!-- MAIN CONTENT CONTAINER -->
   <main class="flex-grow">
@@ -133,8 +100,7 @@
     <!-- SECTION 1: HOME PAGE -->
     <section id="section-home" class="tab-content block">
       <div class="relative overflow-hidden bg-slate-950 border-b border-slate-900 py-16 sm:py-24">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:20px_20px]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-3xl">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-indigo-950 text-indigo-300 mb-4 border border-indigo-800">
               <i class="fa-solid fa-tv mr-2 text-cyan-400"></i> Official Support Portal for BritTV
@@ -142,167 +108,24 @@
             <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
               Smart TV & Streaming App <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Setup Hub</span>
             </h1>
-            <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-              Complete physical installation guides, device unboxing steps, and app sideloading instructions for Firestick and Xiaomi TV sticks.
-            </p>
             <div class="mt-8 flex flex-wrap gap-4">
-              <button onclick="switchTab('setup')" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-lg shadow-amber-500/20 transition flex items-center cursor-pointer">
+              <button onclick="switchTab('setup')" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition flex items-center cursor-pointer">
                 <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Device Setup Guides
               </button>
-              <button onclick="switchTab('guides')" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-lg shadow-indigo-600/30 transition flex items-center cursor-pointer">
+              <button onclick="switchTab('guides')" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition flex items-center cursor-pointer">
                 <i class="fa-solid fa-book-open mr-2 text-cyan-300"></i> Open User Guides
               </button>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 shadow-sm hover:border-amber-500/50 transition cursor-pointer" onclick="switchTab('setup')">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 border border-amber-500/30">
-              <i class="fa-solid fa-wand-magic-sparkles"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Device Setup Guides</h3>
-            <p class="text-slate-400 text-sm">Step-by-step physical unboxing, TV plugging, power connection, remote pairing, and app sideloading for Firestick and Xiaomi sticks.</p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 shadow-sm hover:border-indigo-500/50 transition cursor-pointer" onclick="switchTab('guides')">
-            <div class="w-12 h-12 rounded-xl bg-indigo-950 text-indigo-400 flex items-center justify-center text-xl mb-4 border border-indigo-800">
-              <i class="fa-solid fa-sliders"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Public User Manuals</h3>
-            <p class="text-slate-400 text-sm">Open tutorials for audio track switching, buffer adjustments, parental controls, and EPG syncing.</p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 shadow-sm hover:border-purple-500/50 transition cursor-pointer" onclick="switchTab('install')">
-            <div class="w-12 h-12 rounded-xl bg-purple-950 text-purple-400 flex items-center justify-center text-xl mb-4 border border-purple-800">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Protected App Installs</h3>
-            <p class="text-slate-400 text-sm">Passcode-restricted portal codes and server configuration URLs.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- SECTION 2: DEDICATED SETUP GUIDES -->
+    <!-- SECTION 2: SETUP GUIDES -->
     <section id="section-setup" class="tab-content hidden">
       <div class="bg-slate-900 text-white py-12 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-block mb-3">
-            <i class="fa-solid fa-tv mr-1.5"></i> Out-of-the-Box Hardware Installation
-          </span>
           <h1 class="text-3xl font-extrabold mb-2">Firestick & Xiaomi TV Stick Setup Guides</h1>
-          <p class="text-slate-400 max-w-3xl text-sm sm:text-base">
-            Complete physical installation walkthroughs—from unboxing and plugging into your television to Wi-Fi connection, remote pairing, developer options, and app sideloading codes.
-          </p>
-        </div>
-      </div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-        <!-- Firestick Setup -->
-        <div class="bg-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-xl space-y-8">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-            <div class="flex items-center space-x-4">
-              <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl border border-amber-500/30 shrink-0">
-                <i class="fa-solid fa-fire"></i>
-              </div>
-              <div>
-                <span class="text-xs font-bold uppercase text-amber-400 tracking-wider">Amazon Hardware Guide</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Amazon Fire TV Stick Setup</h2>
-              </div>
-            </div>
-            <div class="flex items-center space-x-3">
-              <span class="text-xs text-slate-400 font-mono bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">Downloader Code: <strong class="text-amber-400">94821</strong></span>
-              <button onclick="copyToClipboard('94821')" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition cursor-pointer">
-                <i class="fa-solid fa-copy mr-1"></i> Copy Code
-              </button>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm flex items-center justify-center mb-3">1</div>
-                <h4 class="font-bold text-white text-base mb-1">Physical Plug-In</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Plug your Firestick directly into an open <strong>HDMI port</strong> on your television.</p>
-              </div>
-            </div>
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm flex items-center justify-center mb-3">2</div>
-                <h4 class="font-bold text-white text-base mb-1">Power & Remotes</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Connect power adapter to wall socket and insert batteries into the remote.</p>
-              </div>
-            </div>
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm flex items-center justify-center mb-3">3</div>
-                <h4 class="font-bold text-white text-base mb-1">Wi-Fi & Account</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Connect to Wi-Fi and sign in with your Amazon account.</p>
-              </div>
-            </div>
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm flex items-center justify-center mb-3">4</div>
-                <h4 class="font-bold text-white text-base mb-1">App Sideloading</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Install Downloader and enter shortcode <strong class="text-amber-400">94821</strong>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Xiaomi Setup -->
-        <div class="bg-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-xl space-y-8">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-            <div class="flex items-center space-x-4">
-              <div class="w-14 h-14 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-2xl border border-orange-500/30 shrink-0">
-                <i class="fa-solid fa-bolt"></i>
-              </div>
-              <div>
-                <span class="text-xs font-bold uppercase text-orange-400 tracking-wider">Xiaomi Android TV Guide</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Xiaomi TV Stick 4K / Lite Setup</h2>
-              </div>
-            </div>
-            <div class="flex items-center space-x-3">
-              <span class="text-xs text-slate-400 font-mono bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">Downloader Code: <strong class="text-orange-400">94822</strong></span>
-              <button onclick="copyToClipboard('94822')" class="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 text-xs font-bold transition cursor-pointer">
-                <i class="fa-solid fa-copy mr-1"></i> Copy Code
-              </button>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">1</div>
-                <h4 class="font-bold text-white text-base mb-1">HDMI & Power</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Plug Xiaomi stick into TV HDMI port and connect power lead.</p>
-              </div>
-            </div>
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">2</div>
-                <h4 class="font-bold text-white text-base mb-1">Remote Pairing</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Hold Home and Back buttons together until remote pairs.</p>
-              </div>
-            </div>
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">3</div>
-                <h4 class="font-bold text-white text-base mb-1">Google TV Setup</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Connect to Wi-Fi and sign in with your Google account.</p>
-              </div>
-            </div>
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 flex flex-col justify-between">
-              <div>
-                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 font-bold text-sm flex items-center justify-center mb-3">4</div>
-                <h4 class="font-bold text-white text-base mb-1">Sideloading Apps</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">Install Downloader from Play Store and enter code <strong class="text-orange-400">94822</strong>.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -312,270 +135,85 @@
       <div class="bg-slate-900 text-white py-12 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 class="text-3xl font-extrabold mb-2">BritTV Public User Guides</h1>
-          <p class="text-slate-400 max-w-2xl text-sm sm:text-base mb-6">
-            Open knowledge base for app configuration, electronic program guide (EPG) troubleshooting, audio adjustments, and remote controls.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-3">
-            <div class="relative flex-grow">
-              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400"></i>
-              <input type="text" id="guide-search-input" oninput="filterGuides()" placeholder="Search guides by keyword, device type, or error..." 
-                class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 text-sm">
-            </div>
-            <select id="guide-category-filter" onchange="filterGuides()" 
-              class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
-              <option value="all">All Categories</option>
-              <option value="Smart TV">Smart TV</option>
-              <option value="Firestick">Firestick</option>
-              <option value="Xiaomi Stick">Xiaomi Stick</option>
-              <option value="Android TV">Android TV</option>
-              <option value="Apple TV">Apple TV</option>
-              <option value="General">General</option>
-            </select>
+          <div class="flex flex-col sm:flex-row gap-3 mt-4">
+            <input type="text" id="guide-search-input" oninput="filterGuides()" placeholder="Search guides..." class="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm">
           </div>
         </div>
       </div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div class="flex justify-between items-center mb-6">
-          <div class="text-slate-400 text-sm">
-            Showing <span id="guides-count" class="font-bold text-white">0</span> user guides
-          </div>
-        </div>
-
         <div id="guides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-        <div id="guides-empty" class="hidden text-center py-16 bg-slate-900 rounded-2xl border border-dashed border-slate-800">
-          <i class="fa-solid fa-tv text-4xl text-slate-700 mb-3"></i>
-          <h3 class="text-lg font-bold text-slate-300">No guides matching search</h3>
-          <p class="text-slate-500 text-sm mt-1">Try clearing your search query or choosing another category.</p>
-        </div>
       </div>
     </section>
 
-    <!-- SECTION 4: PROTECTED APP INSTALLATION GUIDES (SECURITY GATE) -->
+    <!-- SECTION 4: PROTECTED INSTALLATION -->
     <section id="section-install" class="tab-content hidden">
       <div id="install-locked-screen" class="max-w-2xl mx-auto px-4 py-20 text-center">
-        <div class="bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-800 shadow-xl relative overflow-hidden">
-          <div class="absolute -right-12 -top-12 w-40 h-40 bg-purple-600/10 rounded-full blur-2xl"></div>
-          
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-500 text-white flex items-center justify-center text-2xl mx-auto mb-6 shadow-lg shadow-purple-600/20">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Protected TV Installation Hub</h2>
-          <p class="text-slate-400 text-sm max-w-md mx-auto mb-6">
-            Access M3U server URLs, MAC address portals, and advanced installer files for streaming hardware.
-          </p>
-
-          <form onsubmit="unlockInstallationSection(event)" class="max-w-md mx-auto space-y-4">
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 text-left mb-1.5">Enter Section Access Passcode</label>
-              <div class="relative">
-                <input type="password" id="install-passcode-input" placeholder="Enter passcode..." required 
-                  class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-purple-500 text-center font-mono text-base tracking-widest">
-                <button type="button" onclick="togglePasscodeVisibility()" class="absolute right-3.5 top-3.5 text-slate-400 hover:text-slate-200 cursor-pointer">
-                  <i id="passcode-eye-icon" class="fa-solid fa-eye"></i>
-                </button>
-              </div>
-            </div>
-
-            <div id="install-auth-error" class="hidden text-xs text-red-400 bg-red-950/50 p-2.5 rounded-lg border border-red-800">
-              Incorrect access passcode. Use the demo key below.
-            </div>
-
-            <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm shadow-md transition flex items-center justify-center cursor-pointer">
-              <i class="fa-solid fa-lock-open mr-2"></i> Unlock Installation Guides
-            </button>
+        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl">
+          <h2 class="text-2xl font-bold text-white mb-4">Protected Installation Hub</h2>
+          <form onsubmit="unlockInstallationSection(event)" class="space-y-4">
+            <input type="password" id="install-passcode-input" placeholder="Enter passcode..." required class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-center font-mono">
+            <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm cursor-pointer">Unlock</button>
           </form>
-
-          <div class="mt-6 pt-6 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-            <span><i class="fa-solid fa-key text-purple-400 mr-1"></i> Demo Passcode: <code class="bg-slate-800 px-1.5 py-0.5 rounded text-slate-200 font-mono">INSTALL2026</code></span>
-            <button onclick="useDemoPasscode()" class="text-purple-400 font-semibold hover:underline cursor-pointer">Quick Fill</button>
-          </div>
         </div>
       </div>
-
       <div id="install-unlocked-screen" class="hidden">
-        <div class="bg-slate-900 text-white py-10 border-b border-slate-800">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <div>
-              <div class="flex items-center space-x-2">
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  <i class="fa-solid fa-unlock mr-1"></i> Access Unlocked
-                </span>
-                <span class="text-xs text-slate-400">BritTV Installer Portal</span>
-              </div>
-              <h1 class="text-3xl font-extrabold mt-1">Protected App Installation Guides</h1>
-            </div>
-
-            <button onclick="lockInstallationSection()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition cursor-pointer">
-              <i class="fa-solid fa-lock mr-1.5"></i> Lock Section
-            </button>
-          </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div class="flex flex-wrap gap-2 mb-8">
-            <button onclick="filterInstallOS('all')" class="os-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-purple-600 text-white transition cursor-pointer">All Hardware</button>
-            <button onclick="filterInstallOS('Samsung Tizen')" class="os-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition cursor-pointer"><i class="fa-solid fa-tv mr-1 text-blue-400"></i> Samsung Tizen</button>
-            <button onclick="filterInstallOS('LG webOS')" class="os-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition cursor-pointer"><i class="fa-solid fa-tv mr-1 text-pink-400"></i> LG webOS</button>
-            <button onclick="filterInstallOS('MAG Box')" class="os-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition cursor-pointer"><i class="fa-solid fa-box mr-1 text-cyan-400"></i> MAG / STB</button>
-          </div>
-
-          <div id="install-guides-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-        </div>
+        <div id="install-guides-grid" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 md:grid-cols-2 gap-6"></div>
       </div>
     </section>
 
-    <!-- SECTION 5: APPS PORTFOLIO -->
+    <!-- SECTION 5: APPS -->
     <section id="section-apps" class="tab-content hidden">
-      <div class="bg-slate-900 border-b border-slate-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-extrabold text-white mb-2">BritTV Application Ecosystem</h1>
-          <p class="text-slate-400 max-w-2xl text-sm sm:text-base">
-            Official media players and helper utilities supported on BritTV streaming platform.
-          </p>
-        </div>
-      </div>
-
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </div>
     </section>
 
-    <!-- SECTION 6: ADMIN PORTAL WITH CRUD MANAGEMENT -->
+    <!-- SECTION 6: ADMIN PORTAL -->
     <section id="section-admin" class="tab-content hidden">
       <div class="bg-slate-900 text-white py-8 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div>
-            <div class="flex items-center space-x-2">
-              <h1 class="text-2xl font-extrabold">BritTV Admin Portal</h1>
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                Authorized Admin
-              </span>
-            </div>
-            <p class="text-slate-400 text-xs sm:text-sm mt-1">Manage public guides, Downloader codes, R2 media URLs, and security settings.</p>
+            <h1 class="text-2xl font-extrabold">BritTV Admin Portal</h1>
+            <p class="text-slate-400 text-xs mt-1">Manage guides with step-by-step text & screenshots.</p>
           </div>
-          
-          <div class="flex items-center space-x-3">
-            <button onclick="openCreateGuideModal()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition flex items-center cursor-pointer shadow-lg shadow-indigo-600/30">
+          <div class="flex space-x-3">
+            <button onclick="openCreateGuideModal()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm cursor-pointer">
               <i class="fa-solid fa-plus mr-2"></i> New User Guide
             </button>
-            <button onclick="logoutAdmin()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm transition border border-slate-700 cursor-pointer">
-              <i class="fa-solid fa-right-from-bracket mr-1.5"></i> Logout
+            <button onclick="logoutAdmin()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm border border-slate-700 cursor-pointer">
+              Logout
             </button>
           </div>
         </div>
       </div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Admin Sub-Navigation Tabs -->
-        <div class="flex overflow-x-auto border-b border-slate-800 mb-8 space-x-8">
-          <button onclick="switchAdminTab('manage-guides')" id="admin-tab-guides" class="admin-tab-btn pb-3 text-sm font-semibold text-indigo-400 border-b-2 border-indigo-500 whitespace-nowrap cursor-pointer">
-            <i class="fa-solid fa-file-lines mr-2"></i>Public User Guides
-          </button>
-          <button onclick="switchAdminTab('manage-installs')" id="admin-tab-installs" class="admin-tab-btn pb-3 text-sm font-medium text-slate-400 hover:text-slate-200 whitespace-nowrap cursor-pointer">
-            <i class="fa-solid fa-shield-halved mr-2 text-purple-400"></i>Protected Install Guides
-          </button>
-          <button onclick="switchAdminTab('manage-security')" id="admin-tab-security" class="admin-tab-btn pb-3 text-sm font-medium text-slate-400 hover:text-slate-200 whitespace-nowrap cursor-pointer">
-            <i class="fa-solid fa-key mr-2"></i>Security Passcode
-          </button>
-        </div>
-
-        <!-- Admin Content 1: Manage User Guides -->
-        <div id="admin-content-guides" class="admin-tab-content block">
-          <div class="bg-slate-900 rounded-2xl border border-slate-800 shadow-sm overflow-hidden">
-            <div class="p-4 border-b border-slate-800 bg-slate-900/50 flex justify-between items-center">
-              <h3 class="font-bold text-slate-200 text-sm">Public User Guides Database</h3>
-              <button onclick="openCreateGuideModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold cursor-pointer">
-                <i class="fa-solid fa-plus mr-1"></i> Add Guide
-              </button>
-            </div>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left border-collapse text-sm">
-                <thead>
-                  <tr class="bg-slate-800/50 border-b border-slate-800 text-slate-300 font-semibold">
-                    <th class="py-3 px-4">Title</th>
-                    <th class="py-3 px-4">Category</th>
-                    <th class="py-3 px-4">Read Time</th>
-                    <th class="py-3 px-4 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="admin-guides-table-body" class="divide-y divide-slate-800"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Admin Content 2: Manage Install Guides -->
-        <div id="admin-content-installs" class="admin-tab-content hidden">
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="font-bold text-white text-base">Protected App Installation Guides</h3>
-            <button onclick="openCreateInstallModal()" class="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold cursor-pointer">
-              <i class="fa-solid fa-plus mr-1"></i> Add Install Guide
-            </button>
-          </div>
-          <div class="bg-slate-900 rounded-2xl border border-slate-800 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-              <table class="w-full text-left border-collapse text-sm">
-                <thead>
-                  <tr class="bg-slate-800/50 border-b border-slate-800 text-slate-300 font-semibold">
-                    <th class="py-3 px-4">App & Title</th>
-                    <th class="py-3 px-4">Platform (Hardware)</th>
-                    <th class="py-3 px-4 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="admin-installs-table-body" class="divide-y divide-slate-800"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Admin Content 3: Security Passcode -->
-        <div id="admin-content-security" class="admin-tab-content hidden">
-          <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-sm max-w-lg">
-            <h3 class="font-bold text-white mb-2"><i class="fa-solid fa-key text-purple-400 mr-2"></i>Installation Gate Passcode</h3>
-            <p class="text-slate-400 text-xs mb-4">Update the access code required for users to view Protected Installation Guides.</p>
-            <form onsubmit="handleSavePasscode(event)" class="space-y-4">
-              <div>
-                <label class="block text-xs font-semibold text-slate-400 mb-1">New Access Passcode</label>
-                <input type="text" id="security-passcode-input" required class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm font-mono text-white focus:outline-none focus:border-purple-500">
-              </div>
-              <button type="submit" class="px-5 py-2.5 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-lg text-sm transition cursor-pointer">
-                Update Security Passcode
-              </button>
-            </form>
-          </div>
+        <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="bg-slate-800/50 border-b border-slate-800 text-slate-300 font-semibold">
+                <th class="py-3 px-4">Title</th>
+                <th class="py-3 px-4">Category</th>
+                <th class="py-3 px-4">Steps Count</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-guides-table-body" class="divide-y divide-slate-800"></tbody>
+          </table>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-900 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-      <div>
-        <p class="font-bold text-slate-200">BritTV Help Support Hub</p>
-        <p class="mt-1 text-slate-500">© 2026 BritTV. Setup guides & protected installation portal.</p>
-      </div>
-      <div class="flex items-center space-x-4">
-        <button onclick="switchTab('setup')" class="hover:text-white transition cursor-pointer">Setup Guides</button>
-        <button onclick="switchTab('guides')" class="hover:text-white transition cursor-pointer">User Guides</button>
-        <button onclick="switchTab('install')" class="hover:text-white transition cursor-pointer">Protected Installation</button>
-        <button onclick="openAuthModal()" class="hover:text-white transition cursor-pointer">Admin Portal</button>
-      </div>
-    </div>
-  </footer>
-
-  <!-- MODAL 1: Public Guide Detail View -->
+  <!-- MODAL: Guide View Modal (Shows Step Text + Screenshot Underneath) -->
   <div id="guide-detail-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 w-full max-w-3xl rounded-2xl border border-slate-800 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
       <div class="p-6 bg-slate-950 text-white flex justify-between items-start border-b border-slate-800">
         <div>
           <span id="modal-guide-category" class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-indigo-600 text-white">Category</span>
           <h2 id="modal-guide-title" class="text-2xl font-bold mt-2">Guide Title</h2>
-          <p id="modal-guide-subtitle" class="text-slate-400 text-xs sm:text-sm mt-1">App / Device: <span id="modal-guide-app" class="text-slate-200 font-medium">BritTV Player</span></p>
+          <p id="modal-guide-subtitle" class="text-slate-400 text-xs mt-1">App: <span id="modal-guide-app" class="text-slate-200 font-medium">BritTV</span></p>
         </div>
         <button onclick="closeGuideModal()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center cursor-pointer">
           <i class="fa-solid fa-xmark"></i>
@@ -584,166 +222,82 @@
 
       <div class="p-6 overflow-y-auto space-y-6 flex-grow" id="modal-guide-body"></div>
 
-      <div class="p-4 bg-slate-950/80 border-t border-slate-800 flex justify-between items-center">
-        <span class="text-xs text-slate-400" id="modal-guide-time"><i class="fa-regular fa-clock mr-1"></i> 3 min read</span>
-        <button onclick="closeGuideModal()" class="px-5 py-2 rounded-lg bg-slate-800 text-slate-300 text-sm font-semibold hover:bg-slate-700 transition cursor-pointer">
-          Close Guide
-        </button>
+      <div class="p-4 bg-slate-950/80 border-t border-slate-800 flex justify-end">
+        <button onclick="closeGuideModal()" class="px-5 py-2 rounded-lg bg-slate-800 text-slate-300 text-sm font-semibold cursor-pointer">Close</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 2: Create / Edit Public Guide (With R2 Image / Screenshot support) -->
+  <!-- MODAL: Create / Edit Guide with Step-by-Step Screenshots -->
   <div id="guide-edit-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-slate-900 w-full max-w-2xl rounded-2xl border border-slate-800 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+    <div class="bg-slate-900 w-full max-w-3xl rounded-2xl border border-slate-800 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
       <div class="px-6 py-4 bg-slate-950 text-white flex justify-between items-center border-b border-slate-800">
         <h3 id="edit-modal-title" class="font-bold text-lg">Create New User Guide</h3>
         <button onclick="closeEditGuideModal()" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-      <form id="guide-editor-form" onsubmit="handleSaveGuide(event)" class="p-6 overflow-y-auto space-y-4 flex-grow">
+      <form id="guide-editor-form" onsubmit="handleSaveGuide(event)" class="p-6 overflow-y-auto space-y-6 flex-grow">
         <input type="hidden" id="edit-guide-id" value="">
 
         <div>
           <label class="block text-xs font-semibold text-slate-300 mb-1">Guide Title</label>
-          <input type="text" id="edit-guide-title" required class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+          <input type="text" id="edit-guide-title" required class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white">
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Target Application / Hardware</label>
-            <input type="text" id="edit-guide-app" required class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Target Application</label>
+            <input type="text" id="edit-guide-app" required class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white">
           </div>
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1">Category</label>
-            <select id="edit-guide-category" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 text-white rounded-lg text-sm focus:outline-none focus:border-indigo-500">
-              <option value="Smart TV">Smart TV</option>
+            <select id="edit-guide-category" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 text-white rounded-lg text-sm">
               <option value="Firestick">Firestick</option>
               <option value="Xiaomi Stick">Xiaomi Stick</option>
-              <option value="Android TV">Android TV</option>
+              <option value="Smart TV">Smart TV</option>
               <option value="General">General</option>
             </select>
           </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1"><i class="fa-solid fa-image text-cyan-400 mr-1"></i> Screenshot Image (Cloudflare R2 URL or File Upload)</label>
-          <input type="text" id="edit-guide-image-url" placeholder="https://pub-xxx.r2.dev/screenshot.jpg" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 mb-2">
-          <label class="inline-block px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold cursor-pointer hover:bg-slate-700">
-            <i class="fa-solid fa-upload mr-1 text-cyan-400"></i> Select Screenshot File
-            <input type="file" id="edit-guide-file" accept="image/*" class="hidden" onchange="handleImageFileUpload(event, 'edit-guide-image-url')">
-          </label>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Estimated Read Time</label>
-            <input type="text" id="edit-guide-readtime" required placeholder="e.g. 3 mins" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Summary Overview</label>
-            <input type="text" id="edit-guide-summary" required class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500">
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Read Time</label>
+            <input type="text" id="edit-guide-readtime" required placeholder="3 mins" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white">
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Step-by-step Detailed Instructions</label>
-          <textarea id="edit-guide-content" rows="6" required placeholder="Step 1: ...&#10;Step 2: ..." class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm font-mono text-white focus:outline-none focus:border-indigo-500"></textarea>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Summary Overview</label>
+          <input type="text" id="edit-guide-summary" required class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white">
+        </div>
+
+        <!-- DYNAMIC STEP BUILDER -->
+        <div class="border-t border-slate-800 pt-4 space-y-4">
+          <div class="flex justify-between items-center">
+            <h4 class="text-sm font-bold text-cyan-400"><i class="fa-solid fa-list-check mr-2"></i>Guide Steps & Screenshots</h4>
+            <button type="button" onclick="addStepField()" class="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold cursor-pointer">
+              <i class="fa-solid fa-plus mr-1"></i> Add Step
+            </button>
+          </div>
+
+          <div id="steps-container" class="space-y-4">
+            <!-- Dynamic step items rendered here -->
+          </div>
         </div>
 
         <div class="pt-4 flex justify-end space-x-3 border-t border-slate-800">
           <button type="button" onclick="closeEditGuideModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 text-sm font-medium cursor-pointer">Cancel</button>
-          <button type="submit" class="px-5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold shadow cursor-pointer">Save User Guide</button>
+          <button type="submit" class="px-5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold cursor-pointer">Save Guide</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- MODAL 3: Create / Edit Protected Installation Guide -->
-  <div id="install-edit-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-slate-900 w-full max-w-2xl rounded-2xl border border-slate-800 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
-      <div class="px-6 py-4 bg-slate-950 text-white flex justify-between items-center border-b border-slate-800">
-        <h3 id="install-edit-modal-title" class="font-bold text-lg">Add Installation Guide</h3>
-        <button onclick="closeEditInstallModal()" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-
-      <form id="install-editor-form" onsubmit="handleSaveInstallGuide(event)" class="p-6 overflow-y-auto space-y-4 flex-grow">
-        <input type="hidden" id="edit-install-id" value="">
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Guide Title</label>
-          <input type="text" id="edit-install-title" required placeholder="e.g. BritTV Firestick Downloader Setup" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500">
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Target App Name</label>
-            <input type="text" id="edit-install-app" required placeholder="e.g. BritTV Pro APK" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Hardware / OS</label>
-            <select id="edit-install-os" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 text-white rounded-lg text-sm focus:outline-none focus:border-purple-500">
-              <option value="Fire TV">Fire TV / Stick</option>
-              <option value="Xiaomi Stick">Xiaomi TV Stick</option>
-              <option value="Android TV">Android TV</option>
-              <option value="Samsung Tizen">Samsung Tizen</option>
-              <option value="LG webOS">LG webOS</option>
-              <option value="MAG Box">MAG Box</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Minimum Hardware Requirement</label>
-          <input type="text" id="edit-install-req" required placeholder="e.g. Fire OS 6+, Enable Unknown Sources" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500">
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Downloader Shortcode or Portal URL</label>
-          <input type="text" id="edit-install-script" placeholder="e.g. Code: 94821 or http://brittvhelp.com/portal" class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm font-mono text-white focus:outline-none focus:border-purple-500">
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Detailed Installation Instructions</label>
-          <textarea id="edit-install-instructions" rows="4" required placeholder="Step 1: Open Downloader...&#10;Step 2: Enter code..." class="w-full px-3.5 py-2 border border-slate-700 bg-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500"></textarea>
-        </div>
-
-        <div class="pt-4 flex justify-end space-x-3 border-t border-slate-800">
-          <button type="button" onclick="closeEditInstallModal()" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 text-sm font-medium cursor-pointer">Cancel</button>
-          <button type="submit" class="px-5 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold shadow cursor-pointer">Save Installation Guide</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL 4: Admin Authentication Modal -->
+  <!-- MODAL: Admin Auth -->
   <div id="auth-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-slate-900 w-full max-w-md rounded-2xl border border-slate-800 shadow-2xl overflow-hidden p-6 relative">
-      <button type="button" onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white cursor-pointer">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
-
-      <div class="text-center mb-6">
-        <div class="w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center text-xl mx-auto mb-3">
-          <i class="fa-solid fa-lock"></i>
-        </div>
-        <h3 class="text-xl font-bold text-white">Admin Authentication</h3>
-        <p class="text-slate-400 text-xs mt-1">Enter password to access BritTV Admin console.</p>
-      </div>
-
+    <div class="bg-slate-900 w-full max-w-md rounded-2xl border border-slate-800 p-6">
+      <h3 class="text-xl font-bold text-white mb-4">Admin Sign In</h3>
       <form onsubmit="handleAdminLogin(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">Admin Password</label>
-          <input type="password" id="auth-password" required placeholder="Enter admin password..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-indigo-500 text-sm">
-        </div>
-
-        <div id="auth-error" class="hidden text-xs text-red-400 bg-red-950/50 p-2.5 rounded-lg border border-red-800">
-          Incorrect password. Password is <code class="font-mono">admin123</code>.
-        </div>
-
-        <button type="submit" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow transition cursor-pointer">
-          Sign In
-        </button>
+        <input type="password" id="auth-password" required placeholder="Enter admin password..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm">
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm cursor-pointer">Sign In</button>
       </form>
     </div>
   </div>
@@ -751,7 +305,7 @@
   <!-- Toast Notification -->
   <div id="toast-notification" class="fixed bottom-5 right-5 z-50 bg-indigo-600 text-white px-4 py-3 rounded-xl shadow-2xl border border-indigo-400/30 flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
     <i class="fa-solid fa-circle-check text-lg"></i>
-    <span id="toast-message" class="text-xs sm:text-sm font-semibold">Action completed successfully</span>
+    <span id="toast-message" class="text-xs sm:text-sm font-semibold">Action completed</span>
   </div>
 
   <!-- JAVASCRIPT APP LOGIC -->
@@ -763,191 +317,143 @@
         appName: 'BritTV Player',
         category: 'General',
         readTime: '3 mins',
-        summary: 'Step-by-step instructions to optimize cache buffer, change stream format (HLS/TS), and clear player data.',
-        content: "1. Open BritTV Player Settings.\n2. Navigate to 'Playback Settings' > Change Stream Format to 'HLS'.\n3. Increase Buffer Size to 'Large (10 seconds)'.\n4. If buffering persists, clear cache in Android App Settings.",
-        imageUrl: ''
-      },
-      {
-        id: 'guide-2',
-        title: 'Electronic Program Guide (EPG) Sync Issue',
-        appName: 'BritTV Player Pro',
-        category: 'Firestick',
-        readTime: '2 mins',
-        summary: 'How to force refresh TV guide channels, update EPG URL, and fix missing TV channel schedules.',
-        content: "1. From BritTV Home screen, select 'EPG' from the top menu.\n2. Press the Menu button on your remote control.\n3. Click 'Force Refresh EPG Data'.\n4. Allow 1-2 minutes for channel lineups to populate.",
-        imageUrl: ''
+        summary: 'Step-by-step guide to optimize buffer and change stream format.',
+        steps: [
+          {
+            text: 'Step 1: Open BritTV Player and navigate to the Settings menu.',
+            image: ''
+          },
+          {
+            text: 'Step 2: Select "Playback Settings" and change Stream Format to "HLS".',
+            image: ''
+          },
+          {
+            text: 'Step 3: Increase Buffer Size to "Large (10 seconds)" and click Save.',
+            image: ''
+          }
+        ]
       }
     ];
 
-    let installGuidesData = [
-      {
-        id: 'install-2',
-        title: 'Smart IPTV / Smart STB Portal Setup for LG & Samsung',
-        appName: 'BritTV Smart Portal',
-        os: 'Samsung Tizen',
-        requirement: 'Samsung Tizen OS or LG webOS (2018+ models)',
-        script: 'Portal URL: http://brittvhelp.com/portal',
-        instructions: "1. Download 'Smart STB' or 'IBO Player' from Samsung/LG Content Store.\n2. Launch the app and note down your device Virtual MAC Address.\n3. Enter the Portal URL above in app settings.\n4. Save settings and reload portal."
-      }
-    ];
-
-    let appsData = [
-      { id: 'app-1', name: 'BritTV Player Pro', category: 'Firestick', icon: 'fa-solid fa-tv', description: 'Primary streaming player for Fire TV and Android devices.' },
-      { id: 'app-2', name: 'BritTV Smart Portal', category: 'Smart TV', icon: 'fa-solid fa-display', description: 'Cloud portal for Samsung Tizen & LG webOS Smart TVs.' }
-    ];
-
-    let activePasscode = "INSTALL2026";
     let loggedInAdmin = false;
-    let activeInstallOS = 'all';
 
     window.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem('brittv_admin') === 'true') {
+        loggedInAdmin = true;
+      }
       renderGuidesGrid();
-      renderInstallGuidesGrid();
-      renderAppsGrid();
       renderAdminGuidesTable();
-      renderAdminInstallsTable();
     });
 
-    // NAVIGATION TAB SWITCHER
     window.switchTab = function(tabId) {
-      if (tabId === 'admin' && !loggedInAdmin) {
+      if (tabId === 'admin' && sessionStorage.getItem('brittv_admin') !== 'true') {
         openAuthModal();
         return;
       }
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       const activeSec = document.getElementById(`section-${tabId}`);
       if (activeSec) activeSec.classList.remove('hidden');
-
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('text-indigo-400', 'bg-indigo-950/60', 'border', 'border-indigo-800/50');
-        btn.classList.add('text-slate-300');
-      });
-      const activeNav = document.getElementById(`nav-${tabId}`);
-      if (activeNav) {
-        activeNav.classList.add('text-indigo-400', 'bg-indigo-950/60', 'border', 'border-indigo-800/50');
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.switchAdminTab = function(subTabId) {
-      document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.admin-tab-btn').forEach(btn => {
-        btn.classList.remove('text-indigo-400', 'border-b-2', 'border-indigo-500', 'font-semibold');
-        btn.classList.add('text-slate-400', 'font-medium');
-      });
-
-      if (subTabId === 'manage-guides') {
-        document.getElementById('admin-content-guides').classList.remove('hidden');
-        document.getElementById('admin-tab-guides').classList.add('text-indigo-400', 'border-b-2', 'border-indigo-500', 'font-semibold');
-      } else if (subTabId === 'manage-installs') {
-        document.getElementById('admin-content-installs').classList.remove('hidden');
-        document.getElementById('admin-tab-installs').classList.add('text-indigo-400', 'border-b-2', 'border-indigo-500', 'font-semibold');
-      } else if (subTabId === 'manage-security') {
-        document.getElementById('admin-content-security').classList.remove('hidden');
-        document.getElementById('admin-tab-security').classList.add('text-indigo-400', 'border-b-2', 'border-indigo-500', 'font-semibold');
-      }
-    };
-
-    window.filterInstallOS = function(os) {
-      activeInstallOS = os;
-      document.querySelectorAll('.os-filter-btn').forEach(btn => {
-        btn.classList.remove('bg-purple-600', 'text-white');
-        btn.classList.add('bg-slate-800', 'text-slate-300');
-      });
-      event.currentTarget.classList.remove('bg-slate-800', 'text-slate-300');
-      event.currentTarget.classList.add('bg-purple-600', 'text-white');
-      renderInstallGuidesGrid();
     };
 
     function renderGuidesGrid() {
       const grid = document.getElementById('guides-grid');
-      const emptyState = document.getElementById('guides-empty');
-      const countEl = document.getElementById('guides-count');
       if (!grid) return;
+      grid.innerHTML = guidesData.map(g => `
+        <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <span class="px-2.5 py-1 rounded text-xs font-bold bg-slate-800 text-slate-300">${escapeHtml(g.category)}</span>
+            <h3 class="text-lg font-bold text-white mt-2 mb-2 hover:text-indigo-400 cursor-pointer" onclick="openGuideModal('${g.id}')">${escapeHtml(g.title)}</h3>
+            <p class="text-slate-400 text-sm mb-4">${escapeHtml(g.summary)}</p>
+          </div>
+          <button onclick="openGuideModal('${g.id}')" class="px-3 py-1.5 rounded-lg bg-indigo-950 text-indigo-300 text-xs font-bold border border-indigo-800 cursor-pointer">
+            Read ${g.steps ? g.steps.length : 0} Steps
+          </button>
+        </div>
+      `).join('');
+    }
 
-      const searchTerm = (document.getElementById('guide-search-input')?.value || '').toLowerCase();
-      const categoryFilter = document.getElementById('guide-category-filter')?.value || 'all';
+    // DISPLAY GUIDE MODAL: TEXT WITH SCREENSHOT UNDERNEATH EACH STEP
+    window.openGuideModal = function(id) {
+      const g = guidesData.find(item => item.id === id);
+      if (!g) return;
+      document.getElementById('modal-guide-category').innerText = g.category;
+      document.getElementById('modal-guide-title').innerText = g.title;
+      document.getElementById('modal-guide-app').innerText = g.appName;
 
-      const filtered = guidesData.filter(g => {
-        const matchesSearch = g.title.toLowerCase().includes(searchTerm) || g.appName.toLowerCase().includes(searchTerm);
-        const matchesCat = categoryFilter === 'all' || g.category === categoryFilter;
-        return matchesSearch && matchesCat;
+      const body = document.getElementById('modal-guide-body');
+      body.innerHTML = `
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 text-sm mb-4">
+          <strong>Overview:</strong> ${escapeHtml(g.summary)}
+        </div>
+        <div class="space-y-6">
+          ${(g.steps || []).map((step, idx) => `
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+              <p class="text-sm text-slate-200 font-medium">${escapeHtml(step.text)}</p>
+              ${step.image ? `
+                <div class="rounded-lg overflow-hidden border border-slate-800">
+                  <img src="${escapeHtml(step.image)}" class="w-full max-h-72 object-cover">
+                </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+      `;
+      document.getElementById('guide-detail-modal').classList.remove('hidden');
+    };
+
+    window.closeGuideModal = function() {
+      document.getElementById('guide-detail-modal').classList.add('hidden');
+    };
+
+    // DYNAMIC STEP BUILDER FUNCTIONS IN ADMIN FORM
+    window.addStepField = function(text = '', image = '') {
+      const container = document.getElementById('steps-container');
+      const stepIndex = container.children.length + 1;
+      const stepDiv = document.createElement('div');
+      stepDiv.className = 'bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 step-item';
+      stepDiv.innerHTML = `
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-indigo-400">Step ${stepIndex}</span>
+          <button type="button" onclick="this.parentElement.parentElement.remove(); renumberSteps();" class="text-red-400 hover:text-red-300 text-xs cursor-pointer">
+            <i class="fa-solid fa-trash mr-1"></i> Remove Step
+          </button>
+        </div>
+        <textarea rows="2" placeholder="Enter step text instructions..." class="step-text w-full px-3 py-2 border border-slate-700 bg-slate-900 rounded-lg text-sm text-white">${escapeHtml(text)}</textarea>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-400 mb-1">Step Screenshot (Cloudflare R2 Image URL or File Upload)</label>
+          <input type="text" value="${escapeHtml(image)}" placeholder="https://pub-xxx.r2.dev/step-screenshot.jpg" class="step-image w-full px-3 py-1.5 border border-slate-700 bg-slate-900 rounded-lg text-xs text-white mb-1">
+          <input type="file" accept="image/*" class="text-xs text-slate-400" onchange="handleStepImageUpload(event, this)">
+        </div>
+      `;
+      container.appendChild(stepDiv);
+    };
+
+    window.renumberSteps = function() {
+      const container = document.getElementById('steps-container');
+      Array.from(container.children).forEach((child, idx) => {
+        const title = child.querySelector('.text-indigo-400');
+        if (title) title.innerText = `Step ${idx + 1}`;
       });
+    };
 
-      countEl.innerText = filtered.length;
-      if (filtered.length === 0) {
-        grid.classList.add('hidden');
-        emptyState.classList.remove('hidden');
-      } else {
-        grid.classList.remove('hidden');
-        emptyState.classList.add('hidden');
-        grid.innerHTML = filtered.map(g => `
-          <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 shadow-sm transition flex flex-col justify-between overflow-hidden">
-            ${g.imageUrl ? `
-              <div class="h-40 -mx-6 -mt-6 mb-4 overflow-hidden bg-slate-950 cursor-pointer" onclick="openGuideModal('${g.id}')">
-                <img src="${escapeHtml(g.imageUrl)}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
-              </div>
-            ` : ''}
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700">${escapeHtml(g.category)}</span>
-                <span class="text-xs text-slate-400"><i class="fa-regular fa-clock mr-1"></i>${escapeHtml(g.readTime)}</span>
-              </div>
-              <h3 class="text-lg font-bold text-white mb-2 cursor-pointer hover:text-indigo-400" onclick="openGuideModal('${g.id}')">${escapeHtml(g.title)}</h3>
-              <p class="text-slate-400 text-sm mb-4 line-clamp-2">${escapeHtml(g.summary || g.content)}</p>
-            </div>
-            <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-              <span class="text-xs font-medium text-slate-400"><i class="fa-solid fa-tv text-slate-500 mr-1"></i>${escapeHtml(g.appName)}</span>
-              <button onclick="openGuideModal('${g.id}')" class="px-3 py-1.5 rounded-lg bg-indigo-950 text-indigo-300 text-xs font-bold border border-indigo-800 transition cursor-pointer">
-                Read Instructions
-              </button>
-            </div>
-          </div>
-        `).join('');
-      }
-    }
+    window.handleStepImageUpload = function(e, fileInput) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const textInput = fileInput.parentElement.querySelector('.step-image');
+        if (textInput) textInput.value = evt.target.result;
+        showToast('Step screenshot attached');
+      };
+      reader.readAsDataURL(file);
+    };
 
-    function renderInstallGuidesGrid() {
-      const container = document.getElementById('install-guides-grid');
-      if (!container) return;
-      const filtered = installGuidesData.filter(ig => activeInstallOS === 'all' || ig.os === activeInstallOS);
-      container.innerHTML = filtered.map(ig => `
-        <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 shadow-sm space-y-4">
-          <div>
-            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-purple-950 text-purple-300 border border-purple-800">${escapeHtml(ig.os)}</span>
-            <h3 class="text-xl font-bold text-white mt-2">${escapeHtml(ig.title)}</h3>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">
-            <span class="font-bold text-white block mb-0.5">Requirement:</span> ${escapeHtml(ig.requirement)}
-          </div>
-          ${ig.script ? `<div class="bg-slate-950 text-indigo-200 p-3.5 rounded-xl text-xs font-mono border border-indigo-900/40">${escapeHtml(ig.script)}</div>` : ''}
-          <div class="text-xs text-slate-300 space-y-1.5 whitespace-pre-line">${escapeHtml(ig.instructions)}</div>
-        </div>
-      `).join('');
-    }
-
-    function renderAppsGrid() {
-      const container = document.getElementById('apps-grid');
-      if (!container) return;
-      container.innerHTML = appsData.map(a => `
-        <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-indigo-950 text-indigo-400 flex items-center justify-center text-xl mb-4 border border-indigo-800">
-              <i class="${escapeHtml(a.icon)}"></i>
-            </div>
-            <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300">${escapeHtml(a.category)}</span>
-            <h3 class="text-lg font-bold text-white mt-2 mb-1">${escapeHtml(a.name)}</h3>
-            <p class="text-slate-400 text-sm">${escapeHtml(a.description)}</p>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    // MODAL OPEN & EDIT FUNCTIONS
     window.openCreateGuideModal = function() {
       document.getElementById('edit-modal-title').innerText = 'Create New User Guide';
       document.getElementById('guide-editor-form').reset();
       document.getElementById('edit-guide-id').value = '';
+      document.getElementById('steps-container').innerHTML = '';
+      addStepField(); // Add default Step 1
       document.getElementById('guide-edit-modal').classList.remove('hidden');
     };
 
@@ -965,14 +471,28 @@
       document.getElementById('edit-guide-category').value = g.category;
       document.getElementById('edit-guide-readtime').value = g.readTime;
       document.getElementById('edit-guide-summary').value = g.summary || '';
-      document.getElementById('edit-guide-content').value = g.content;
-      document.getElementById('edit-guide-image-url').value = g.imageUrl || '';
+
+      const container = document.getElementById('steps-container');
+      container.innerHTML = '';
+      if (g.steps && g.steps.length > 0) {
+        g.steps.forEach(s => addStepField(s.text, s.image));
+      } else {
+        addStepField();
+      }
       document.getElementById('guide-edit-modal').classList.remove('hidden');
     };
 
     window.handleSaveGuide = function(e) {
       e.preventDefault();
       const id = document.getElementById('edit-guide-id').value || 'guide-' + Date.now();
+
+      // Collect dynamic steps
+      const stepElements = document.querySelectorAll('.step-item');
+      const steps = Array.from(stepElements).map(el => ({
+        text: el.querySelector('.step-text').value,
+        image: el.querySelector('.step-image').value
+      }));
+
       const payload = {
         id,
         title: document.getElementById('edit-guide-title').value,
@@ -980,8 +500,7 @@
         category: document.getElementById('edit-guide-category').value,
         readTime: document.getElementById('edit-guide-readtime').value,
         summary: document.getElementById('edit-guide-summary').value,
-        content: document.getElementById('edit-guide-content').value,
-        imageUrl: document.getElementById('edit-guide-image-url').value
+        steps: steps
       };
 
       const idx = guidesData.findIndex(g => g.id === id);
@@ -991,143 +510,32 @@
       renderGuidesGrid();
       renderAdminGuidesTable();
       closeEditGuideModal();
-      showToast('Guide saved successfully!');
+      showToast('Guide with steps saved!');
     };
 
     window.deleteGuide = function(id) {
       guidesData = guidesData.filter(g => g.id !== id);
       renderGuidesGrid();
       renderAdminGuidesTable();
-      showToast('Guide removed.');
+      showToast('Guide deleted.');
     };
 
-    window.openCreateInstallModal = function() {
-      document.getElementById('install-edit-modal-title').innerText = 'Add Installation Guide';
-      document.getElementById('install-editor-form').reset();
-      document.getElementById('edit-install-id').value = '';
-      document.getElementById('install-edit-modal').classList.remove('hidden');
-    };
-
-    window.closeEditInstallModal = function() {
-      document.getElementById('install-edit-modal').classList.add('hidden');
-    };
-
-    window.editInstallGuide = function(id) {
-      const ig = installGuidesData.find(item => item.id === id);
-      if (!ig) return;
-      document.getElementById('install-edit-modal-title').innerText = 'Edit Installation Guide';
-      document.getElementById('edit-install-id').value = ig.id;
-      document.getElementById('edit-install-title').value = ig.title;
-      document.getElementById('edit-install-app').value = ig.appName;
-      document.getElementById('edit-install-os').value = ig.os;
-      document.getElementById('edit-install-req').value = ig.requirement;
-      document.getElementById('edit-install-script').value = ig.script || '';
-      document.getElementById('edit-install-instructions').value = ig.instructions;
-      document.getElementById('install-edit-modal').classList.remove('hidden');
-    };
-
-    window.handleSaveInstallGuide = function(e) {
+    window.handleAdminLogin = function(e) {
       e.preventDefault();
-      const id = document.getElementById('edit-install-id').value || 'install-' + Date.now();
-      const payload = {
-        id,
-        title: document.getElementById('edit-install-title').value,
-        appName: document.getElementById('edit-install-app').value,
-        os: document.getElementById('edit-install-os').value,
-        requirement: document.getElementById('edit-install-req').value,
-        script: document.getElementById('edit-install-script').value,
-        instructions: document.getElementById('edit-install-instructions').value
-      };
-
-      const idx = installGuidesData.findIndex(ig => ig.id === id);
-      if (idx >= 0) installGuidesData[idx] = payload;
-      else installGuidesData.push(payload);
-
-      renderInstallGuidesGrid();
-      renderAdminInstallsTable();
-      closeEditInstallModal();
-      showToast('Installation guide saved!');
-    };
-
-    window.deleteInstallGuide = function(id) {
-      installGuidesData = installGuidesData.filter(ig => ig.id !== id);
-      renderInstallGuidesGrid();
-      renderAdminInstallsTable();
-      showToast('Installation guide removed.');
-    };
-
-    window.handleImageFileUpload = function(e, targetInputId) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(evt) {
-        document.getElementById(targetInputId).value = evt.target.result;
-        showToast('Image file loaded successfully');
-      };
-      reader.readAsDataURL(file);
-    };
-
-    window.unlockInstallationSection = function(e) {
-      e.preventDefault();
-      const code = document.getElementById('install-passcode-input').value;
-      if (code === activePasscode) {
-        document.getElementById('install-locked-screen').classList.add('hidden');
-        document.getElementById('install-unlocked-screen').classList.remove('hidden');
-        showToast('Unlocked successfully!');
-      } else {
-        document.getElementById('install-auth-error').classList.remove('hidden');
+      const pass = document.getElementById('auth-password').value;
+      if (pass === 'admin123') {
+        loggedInAdmin = true;
+        sessionStorage.setItem('brittv_admin', 'true');
+        closeAuthModal();
+        switchTab('admin');
+        showToast('Admin signed in!');
       }
     };
 
-    window.lockInstallationSection = function() {
-      document.getElementById('install-locked-screen').classList.remove('hidden');
-      document.getElementById('install-unlocked-screen').classList.add('hidden');
-      document.getElementById('install-passcode-input').value = '';
-    };
-
-    window.handleSavePasscode = function(e) {
-      e.preventDefault();
-      activePasscode = document.getElementById('security-passcode-input').value;
-      showToast('Passcode updated!');
-    };
-
-    window.togglePasscodeVisibility = function() {
-      const input = document.getElementById('install-passcode-input');
-      input.type = input.type === 'password' ? 'text' : 'password';
-    };
-
-    window.useDemoPasscode = function() {
-      document.getElementById('install-passcode-input').value = activePasscode;
-    };
-
-    window.copyToClipboard = function(text) {
-      navigator.clipboard.writeText(text);
-      showToast('Copied code: ' + text);
-    };
-
-    window.openGuideModal = function(id) {
-      const g = guidesData.find(item => item.id === id);
-      if (!g) return;
-      document.getElementById('modal-guide-category').innerText = g.category;
-      document.getElementById('modal-guide-title').innerText = g.title;
-      document.getElementById('modal-guide-app').innerText = g.appName;
-      document.getElementById('modal-guide-time').innerText = g.readTime + ' read';
-      document.getElementById('modal-guide-body').innerHTML = `
-        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 text-sm mb-4">
-          <strong>Summary:</strong> ${escapeHtml(g.summary || g.content)}
-        </div>
-        ${g.imageUrl ? `
-          <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 mb-4">
-            <img src="${escapeHtml(g.imageUrl)}" class="w-full max-h-80 object-cover">
-          </div>
-        ` : ''}
-        <div class="text-sm text-slate-300 space-y-2 whitespace-pre-line">${escapeHtml(g.content)}</div>
-      `;
-      document.getElementById('guide-detail-modal').classList.remove('hidden');
-    };
-
-    window.closeGuideModal = function() {
-      document.getElementById('guide-detail-modal').classList.add('hidden');
+    window.logoutAdmin = function() {
+      loggedInAdmin = false;
+      sessionStorage.removeItem('brittv_admin');
+      switchTab('home');
     };
 
     window.openAuthModal = function(e) {
@@ -1139,68 +547,17 @@
       document.getElementById('auth-modal').classList.add('hidden');
     };
 
-    window.handleAdminLogin = function(e) {
-      e.preventDefault();
-      const pass = document.getElementById('auth-password').value;
-      if (pass === 'admin123') {
-        setAdminStatus(true);
-        closeAuthModal();
-        switchTab('admin');
-        showToast('Admin logged in!');
-      } else {
-        document.getElementById('auth-error').classList.remove('hidden');
-      }
-    };
-
-    window.logoutAdmin = function() {
-      setAdminStatus(false);
-      switchTab('home');
-      showToast('Logged out.');
-    };
-
-    function setAdminStatus(status) {
-      loggedInAdmin = status;
-      const badgeText = document.getElementById('status-text');
-      const badgeDot = document.getElementById('status-dot');
-      const adminBtn = document.getElementById('admin-portal-btn');
-
-      if (status) {
-        if (badgeText) badgeText.innerText = 'Admin Active';
-        if (badgeDot) badgeDot.className = 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-2';
-        if (adminBtn) adminBtn.innerHTML = `<i class="fa-solid fa-gauge text-xs text-indigo-300"></i><span>Dashboard</span>`;
-      } else {
-        if (badgeText) badgeText.innerText = 'Guest View';
-        if (badgeDot) badgeDot.className = 'w-2 h-2 rounded-full bg-slate-500 mr-2';
-        if (adminBtn) adminBtn.innerHTML = `<i class="fa-solid fa-lock text-xs"></i><span>Admin</span>`;
-      }
-    }
-
     window.renderAdminGuidesTable = function() {
       const tbody = document.getElementById('admin-guides-table-body');
       if (!tbody) return;
       tbody.innerHTML = guidesData.map(g => `
-        <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+        <tr class="border-b border-slate-800">
           <td class="py-3 px-4 font-medium text-white">${escapeHtml(g.title)}</td>
           <td class="py-3 px-4 text-slate-400">${escapeHtml(g.category)}</td>
-          <td class="py-3 px-4 text-slate-400">${escapeHtml(g.readTime)}</td>
+          <td class="py-3 px-4 text-slate-400">${g.steps ? g.steps.length : 0} steps</td>
           <td class="py-3 px-4 text-right space-x-2">
             <button onclick="editGuide('${g.id}')" class="px-2.5 py-1 bg-indigo-950 text-indigo-300 text-xs rounded border border-indigo-800 cursor-pointer">Edit</button>
             <button onclick="deleteGuide('${g.id}')" class="px-2.5 py-1 bg-red-950 text-red-300 text-xs rounded border border-red-800 cursor-pointer">Delete</button>
-          </td>
-        </tr>
-      `).join('');
-    };
-
-    window.renderAdminInstallsTable = function() {
-      const tbody = document.getElementById('admin-installs-table-body');
-      if (!tbody) return;
-      tbody.innerHTML = installGuidesData.map(ig => `
-        <tr class="border-b border-slate-800 hover:bg-slate-800/30">
-          <td class="py-3 px-4 font-medium text-white">${escapeHtml(ig.title)}</td>
-          <td class="py-3 px-4 text-slate-400">${escapeHtml(ig.os)}</td>
-          <td class="py-3 px-4 text-right space-x-2">
-            <button onclick="editInstallGuide('${ig.id}')" class="px-2.5 py-1 bg-purple-950 text-purple-300 text-xs rounded border border-purple-800 cursor-pointer">Edit</button>
-            <button onclick="deleteInstallGuide('${ig.id}')" class="px-2.5 py-1 bg-red-950 text-red-300 text-xs rounded border border-red-800 cursor-pointer">Delete</button>
           </td>
         </tr>
       `).join('');
