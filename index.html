@@ -325,7 +325,7 @@
 
   <!-- JAVASCRIPT APP LOGIC -->
   <script>
-    let guidesData = [
+    const initialGuidesData = [
       {
         id: 'setup-1',
         section: 'setup',
@@ -378,6 +378,24 @@
       }
     ];
 
+    function loadStoredGuides() {
+      const saved = localStorage.getItem('brittv_guides_data');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          console.error('Failed to parse stored guides:', e);
+        }
+      }
+      return initialGuidesData;
+    }
+
+    let guidesData = loadStoredGuides();
+
+    function saveGuidesToStorage() {
+      localStorage.setItem('brittv_guides_data', JSON.stringify(guidesData));
+    }
+
     let activeAdminSubTab = 'setup';
     let loggedInAdmin = false;
     let activePasscode = "INSTALL2026";
@@ -397,7 +415,6 @@
       return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     }
 
-    // Helper function to convert raw URLs into clickable anchor tags
     function formatLinksInText(text) {
       if (!text) return '';
       const escaped = escapeHtml(text);
@@ -436,7 +453,6 @@
       return s.charAt(0).toUpperCase() + s.slice(1);
     }
 
-    // RENDER PUBLIC GRIDS
     function renderSetupGuidesGrid() {
       const grid = document.getElementById('setup-guides-grid');
       if (!grid) return;
@@ -486,7 +502,6 @@
       `;
     }
 
-    // READER MODAL WITH STEP SCREENSHOTS & CLICKABLE LINKS
     window.openGuideModal = function(id) {
       const g = guidesData.find(item => item.id === id);
       if (!g) return;
@@ -526,7 +541,6 @@
       document.getElementById('guide-detail-modal').classList.add('hidden');
     };
 
-    // ADMIN TABLE
     function renderAdminTable() {
       const tbody = document.getElementById('admin-guides-table-body');
       if (!tbody) return;
@@ -547,7 +561,6 @@
       `).join('');
     }
 
-    // CREATE / EDIT MODAL & DYNAMIC STEPS
     window.openCreateGuideModal = function() {
       document.getElementById('edit-modal-title').innerText = 'Create New ' + capitalize(activeAdminSubTab) + ' Guide';
       document.getElementById('guide-editor-form').reset();
@@ -649,6 +662,8 @@
       if (idx >= 0) guidesData[idx] = payload;
       else guidesData.push(payload);
 
+      saveGuidesToStorage();
+
       renderSetupGuidesGrid();
       renderGuidesGrid();
       renderInstallGuidesGrid();
@@ -659,6 +674,8 @@
 
     window.deleteGuide = function(id) {
       guidesData = guidesData.filter(g => g.id !== id);
+      saveGuidesToStorage();
+
       renderSetupGuidesGrid();
       renderGuidesGrid();
       renderInstallGuidesGrid();
@@ -666,7 +683,6 @@
       showToast('Guide deleted.');
     };
 
-    // AUTH & PASSCODE
     window.unlockInstallationSection = function(e) {
       e.preventDefault();
       const code = document.getElementById('install-passcode-input').value;
