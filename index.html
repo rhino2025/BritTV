@@ -138,7 +138,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 class="text-3xl font-extrabold mb-2">BritTV Public User Guides</h1>
           <div class="flex flex-col sm:flex-row gap-3 mt-4">
-            <input type="text" id="guide-search-input" oninput="filterGuides()" placeholder="Search user guides..." class="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm">
+            <input type="text" id="guide-search-input" oninput="renderGuidesGrid()" placeholder="Search user guides..." class="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm">
           </div>
         </div>
       </div>
@@ -197,9 +197,9 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
         <!-- Tab Controls for Admin Manager -->
         <div class="flex border-b border-slate-800 space-x-6">
-          <button onclick="switchAdminSubTab('setup')" id="admin-subtab-setup" class="pb-3 text-sm font-bold text-indigo-400 border-b-2 border-indigo-500 cursor-pointer">Setup Guides</button>
-          <button onclick="switchAdminSubTab('guides')" id="admin-subtab-guides" class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-200 cursor-pointer">User Guides</button>
-          <button onclick="switchAdminSubTab('install')" id="admin-subtab-install" class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-200 cursor-pointer">Installation Guides</button>
+          <button onclick="switchAdminSubTab('setup', event)" id="admin-subtab-setup" class="pb-3 text-sm font-bold text-indigo-400 border-b-2 border-indigo-500 cursor-pointer">Setup Guides</button>
+          <button onclick="switchAdminSubTab('guides', event)" id="admin-subtab-guides" class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-200 cursor-pointer">User Guides</button>
+          <button onclick="switchAdminSubTab('install', event)" id="admin-subtab-install" class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-200 cursor-pointer">Installation Guides</button>
         </div>
 
         <!-- Manager Container -->
@@ -278,7 +278,7 @@
         <!-- CARD LOGO / ICON UPLOAD -->
         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
           <label class="block text-xs font-bold text-cyan-400"><i class="fa-solid fa-image mr-1"></i> Card Logo / Icon URL</label>
-          <input type="text" id="edit-guide-logo" placeholder="https://pub-xxx.r2.dev/logo.png" class="w-full px-3 py-2 border border-slate-700 bg-slate-900 rounded-lg text-sm text-white">
+          <input type="text" id="edit-guide-logo" placeholder="https://media.brittvhelp.com/Logos/downloader.png" class="w-full px-3 py-2 border border-slate-700 bg-slate-900 rounded-lg text-sm text-white">
           <input type="file" accept="image/*" class="text-xs text-slate-400" onchange="handleLogoUpload(event)">
         </div>
 
@@ -332,7 +332,7 @@
         title: 'Amazon Fire TV Stick Setup',
         category: 'Firestick',
         logo: '',
-        summary: 'Complete unboxing, HDMI plugging, remote pairing, and Downloader setup code 94821.',
+        summary: 'Complete unboxing, HDMI plugging, remote pairing, and official instructions at https://www.amazon.com/gp/help/customer/display.html?nodeId=G7HTKNXBW4GPXSH6',
         steps: [
           { text: 'Step 1: Plug Firestick into TV HDMI port and connect power adapter.', image: '' },
           { text: 'Step 2: Connect to Wi-Fi and install Downloader app.', image: '' },
@@ -392,6 +392,21 @@
       renderAdminTable();
     });
 
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    // Helper function to convert raw URLs into clickable anchor tags
+    function formatLinksInText(text) {
+      if (!text) return '';
+      const escaped = escapeHtml(text);
+      const urlRegex = /(https?:\/\/[^\s<]+)/g;
+      return escaped.replace(urlRegex, function(url) {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold hover:underline break-all">${url} <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></a>`;
+      });
+    }
+
     window.switchTab = function(tabId) {
       if (tabId === 'admin' && sessionStorage.getItem('brittv_admin') !== 'true') {
         openAuthModal();
@@ -403,14 +418,16 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    window.switchAdminSubTab = function(section) {
+    window.switchAdminSubTab = function(section, e) {
       activeAdminSubTab = section;
       document.querySelectorAll('#section-admin button[onclick^="switchAdminSubTab"]').forEach(btn => {
         btn.classList.remove('text-indigo-400', 'border-b-2', 'border-indigo-500', 'font-bold');
         btn.classList.add('text-slate-400', 'font-medium');
       });
-      event.currentTarget.classList.add('text-indigo-400', 'border-b-2', 'border-indigo-500', 'font-bold');
-      event.currentTarget.classList.remove('text-slate-400', 'font-medium');
+      if (e && e.currentTarget) {
+        e.currentTarget.classList.add('text-indigo-400', 'border-b-2', 'border-indigo-500', 'font-bold');
+        e.currentTarget.classList.remove('text-slate-400', 'font-medium');
+      }
       document.getElementById('admin-manager-title').innerText = capitalize(section) + ' Guides Management';
       renderAdminTable();
     };
@@ -469,16 +486,6 @@
       `;
     }
 
-    // Helper function to convert raw URLs into clickable anchor tags
-    function formatLinksInText(text) {
-      if (!text) return '';
-      const escaped = escapeHtml(text);
-      const urlRegex = /(https?:\/\/[^\s<]+)/g;
-      return escaped.replace(urlRegex, function(url) {
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold hover:underline break-all">${url} <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></a>`;
-      });
-    }
-
     // READER MODAL WITH STEP SCREENSHOTS & CLICKABLE LINKS
     window.openGuideModal = function(id) {
       const g = guidesData.find(item => item.id === id);
@@ -503,42 +510,6 @@
           ${(g.steps || []).map((step) => `
             <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
               <p class="text-sm text-slate-200 font-medium leading-relaxed">${formatLinksInText(step.text)}</p>
-              ${step.image ? `
-                <div class="rounded-lg overflow-hidden border border-slate-800">
-                  <img src="${escapeHtml(step.image)}" class="w-full max-h-72 object-cover">
-                </div>
-              ` : ''}
-            </div>
-          `).join('')}
-        </div>
-      `;
-      document.getElementById('guide-detail-modal').classList.remove('hidden');
-    };
-
-    // READER MODAL WITH STEP SCREENSHOTS
-    window.openGuideModal = function(id) {
-      const g = guidesData.find(item => item.id === id);
-      if (!g) return;
-      document.getElementById('modal-guide-category').innerText = g.category;
-      document.getElementById('modal-guide-title').innerText = g.title;
-
-      const logoEl = document.getElementById('modal-guide-logo');
-      if (g.logo) {
-        logoEl.src = g.logo;
-        logoEl.classList.remove('hidden');
-      } else {
-        logoEl.classList.add('hidden');
-      }
-
-      const body = document.getElementById('modal-guide-body');
-      body.innerHTML = `
-        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 text-sm mb-4">
-          <strong>Overview:</strong> ${escapeHtml(g.summary)}
-        </div>
-        <div class="space-y-6">
-          ${(g.steps || []).map((step) => `
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-              <p class="text-sm text-slate-200 font-medium">${escapeHtml(step.text)}</p>
               ${step.image ? `
                 <div class="rounded-lg overflow-hidden border border-slate-800">
                   <img src="${escapeHtml(step.image)}" class="w-full max-h-72 object-cover">
@@ -624,7 +595,7 @@
         <textarea rows="2" placeholder="Step text instructions..." class="step-text w-full px-3 py-2 border border-slate-700 bg-slate-900 rounded-lg text-sm text-white">${escapeHtml(text)}</textarea>
         <div>
           <label class="block text-[11px] font-semibold text-slate-400 mb-1">Step Screenshot (URL or File)</label>
-          <input type="text" value="${escapeHtml(image)}" placeholder="https://pub-xxx.r2.dev/step.jpg" class="step-image w-full px-3 py-1.5 border border-slate-700 bg-slate-900 rounded-lg text-xs text-white mb-1">
+          <input type="text" value="${escapeHtml(image)}" placeholder="https://media.brittvhelp.com/step.jpg" class="step-image w-full px-3 py-1.5 border border-slate-700 bg-slate-900 rounded-lg text-xs text-white mb-1">
           <input type="file" accept="image/*" class="text-xs text-slate-400" onchange="handleStepImageUpload(event, this)">
         </div>
       `;
@@ -737,7 +708,6 @@
 
     window.openAuthModal = function(e) {
       if (e) e.preventDefault();
-      document.getElementById('auth-modal').classList.add('hidden'); // reset
       document.getElementById('auth-modal').classList.remove('hidden');
     };
 
@@ -756,11 +726,6 @@
         toast.classList.add('translate-y-20', 'opacity-0');
       }, 3000);
     };
-
-    function escapeHtml(str) {
-      if (!str) return '';
-      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-    }
   </script>
 </body>
 </html>
