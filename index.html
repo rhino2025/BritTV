@@ -469,6 +469,52 @@
       `;
     }
 
+    // Helper function to convert raw URLs into clickable anchor tags
+    function formatLinksInText(text) {
+      if (!text) return '';
+      const escaped = escapeHtml(text);
+      const urlRegex = /(https?:\/\/[^\s<]+)/g;
+      return escaped.replace(urlRegex, function(url) {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold hover:underline break-all">${url} <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></a>`;
+      });
+    }
+
+    // READER MODAL WITH STEP SCREENSHOTS & CLICKABLE LINKS
+    window.openGuideModal = function(id) {
+      const g = guidesData.find(item => item.id === id);
+      if (!g) return;
+      document.getElementById('modal-guide-category').innerText = g.category;
+      document.getElementById('modal-guide-title').innerText = g.title;
+
+      const logoEl = document.getElementById('modal-guide-logo');
+      if (g.logo) {
+        logoEl.src = g.logo;
+        logoEl.classList.remove('hidden');
+      } else {
+        logoEl.classList.add('hidden');
+      }
+
+      const body = document.getElementById('modal-guide-body');
+      body.innerHTML = `
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 text-sm mb-4">
+          <strong>Overview:</strong> ${formatLinksInText(g.summary)}
+        </div>
+        <div class="space-y-6">
+          ${(g.steps || []).map((step) => `
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+              <p class="text-sm text-slate-200 font-medium leading-relaxed">${formatLinksInText(step.text)}</p>
+              ${step.image ? `
+                <div class="rounded-lg overflow-hidden border border-slate-800">
+                  <img src="${escapeHtml(step.image)}" class="w-full max-h-72 object-cover">
+                </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+      `;
+      document.getElementById('guide-detail-modal').classList.remove('hidden');
+    };
+
     // READER MODAL WITH STEP SCREENSHOTS
     window.openGuideModal = function(id) {
       const g = guidesData.find(item => item.id === id);
