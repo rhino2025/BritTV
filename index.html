@@ -526,8 +526,8 @@
             <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
               <p class="text-sm text-slate-200 font-medium leading-relaxed">${formatLinksInText(step.text)}</p>
               ${step.image ? `
-                <div class="rounded-lg overflow-hidden border border-slate-800">
-                  <img src="${escapeHtml(step.image)}" class="w-full max-h-72 object-cover">
+                <div class="rounded-lg overflow-hidden border border-slate-800 bg-black/40 flex items-center justify-center p-2">
+                  <img src="${escapeHtml(step.image)}" class="max-h-80 w-auto object-contain rounded">
                 </div>
               ` : ''}
             </div>
