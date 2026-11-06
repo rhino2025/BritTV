@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <!-- Navigation Links -->
+      <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center space-x-1">
         <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-indigo-400 bg-indigo-950/60 border border-indigo-800/50 cursor-pointer">
           <i class="fa-solid fa-house mr-1.5"></i>Home
@@ -71,21 +71,33 @@
           <i class="fa-solid fa-book-open mr-1.5 text-cyan-400"></i>User Guides
         </button>
         <button onclick="switchTab('install')" id="nav-install" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 relative cursor-pointer">
-          <i class="fa-solid fa-shield-halved mr-1.5 text-purple-400"></i>Installation Guides
-          <span class="ml-1.5 text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-purple-900/60 text-purple-300 border border-purple-700">Protected</span>
+          <i class="fa-solid fa-shield-halved mr-1.5 text-purple-400"></i>Installation
         </button>
         <button onclick="switchTab('apps')" id="nav-apps" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer">
-          <i class="fa-solid fa-cubes mr-1.5 text-indigo-400"></i>Supported Apps
+          <i class="fa-solid fa-cubes mr-1.5 text-indigo-400"></i>Apps
         </button>
       </nav>
 
-      <!-- Actions -->
+      <!-- Actions & Mobile Hamburger Button -->
       <div class="flex items-center space-x-3">
-        <button type="button" onclick="openAuthModal(event)" id="admin-portal-btn" class="flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition shadow-md shadow-indigo-600/20 cursor-pointer">
+        <button type="button" onclick="openAuthModal(event)" id="admin-portal-btn" class="flex items-center space-x-1.5 px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-semibold transition shadow-md shadow-indigo-600/20 cursor-pointer">
           <i class="fa-solid fa-lock text-xs"></i>
           <span>Admin</span>
         </button>
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white cursor-pointer">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
       </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1">
+      <button onclick="switchTab('home'); toggleMobileMenu();" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-house mr-2"></i>Home</button>
+      <button onclick="switchTab('setup'); toggleMobileMenu();" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-wand-magic-sparkles mr-2 text-amber-400"></i>Setup Guides</button>
+      <button onclick="switchTab('guides'); toggleMobileMenu();" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-book-open mr-2 text-cyan-400"></i>User Guides</button>
+      <button onclick="switchTab('install'); toggleMobileMenu();" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-shield-halved mr-2 text-purple-400"></i>Installation Guides</button>
+      <button onclick="switchTab('apps'); toggleMobileMenu();" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-cubes mr-2 text-indigo-400"></i>Supported Apps</button>
     </div>
   </header>
 
@@ -741,6 +753,13 @@
         toast.classList.remove('translate-y-0', 'opacity-100');
         toast.classList.add('translate-y-20', 'opacity-0');
       }, 3000);
+    };
+
+    window.toggleMobileMenu = function() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
     };
   </script>
 </body>
