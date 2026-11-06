@@ -72,6 +72,7 @@
         </button>
         <button onclick="switchTab('install')" id="nav-install" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 relative cursor-pointer">
           <i class="fa-solid fa-shield-halved mr-1.5 text-purple-400"></i>Installation
+          <span class="ml-1.5 text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-purple-900/60 text-purple-300 border border-purple-700">Protected</span>
         </button>
         <button onclick="switchTab('apps')" id="nav-apps" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer">
           <i class="fa-solid fa-cubes mr-1.5 text-indigo-400"></i>Apps
@@ -84,7 +85,6 @@
           <i class="fa-solid fa-lock text-xs"></i>
           <span>Admin</span>
         </button>
-        <!-- Mobile Menu Toggle -->
         <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white cursor-pointer">
           <i class="fa-solid fa-bars text-lg"></i>
         </button>
@@ -339,53 +339,102 @@
   <script>
     const initialGuidesData = [
       {
-        id: 'setup-1',
-        section: 'setup',
-        title: 'Amazon Fire TV Stick Setup',
-        category: 'Firestick',
-        logo: '',
-        summary: 'Complete unboxing, HDMI plugging, remote pairing, and official instructions at https://www.amazon.com/gp/help/customer/display.html?nodeId=G7HTKNXBW4GPXSH6',
-        steps: [
-          { text: 'Step 1: Plug Firestick into TV HDMI port and connect power adapter.', image: '' },
-          { text: 'Step 2: Connect to Wi-Fi and install Downloader app.', image: '' },
-          { text: 'Step 3: Enter shortcode 94821 to install BritTV.', image: '' }
+        "id": "setup-1",
+        "section": "setup",
+        "title": "Amazon Fire TV Stick Setup",
+        "category": "Firestick",
+        "logo": "https://media.brittvhelp.com/Logos/firestick.png",
+        "summary": "Complete unboxing, HDMI plugging, remote pairing, and official instructions at https://www.amazon.com/gp/help/customer/display.html?nodeId=G7HTKNXBW4GPXSH6",
+        "steps": [
+          { "text": "Step 1: Plug Firestick into TV HDMI port and connect power adapter.", "image": "" },
+          { "text": "Step 2: Connect to Wi-Fi and install Downloader app.", "image": "" }
         ]
       },
       {
-        id: 'setup-2',
-        section: 'setup',
-        title: 'Xiaomi TV Stick 4K Setup',
-        category: 'Xiaomi Stick',
-        logo: '',
-        summary: 'Android TV dongle setup, Bluetooth remote pairing, and Downloader code 94822.',
-        steps: [
-          { text: 'Step 1: Plug Xiaomi Stick into HDMI and power outlet.', image: '' },
-          { text: 'Step 2: Hold Home + Back buttons to pair remote.', image: '' },
-          { text: 'Step 3: Enter Downloader code 94822.', image: '' }
+        "id": "setup-2",
+        "section": "setup",
+        "title": "Xiaomi TV Stick 4K Setup",
+        "category": "Xiaomi Stick",
+        "logo": "https://media.brittvhelp.com/Logos/xiaomi.png",
+        "summary": "Android TV dongle setup, Bluetooth remote pairing: https://www.youtube.com/watch?v=_Snx3JxuwNg&t=10s",
+        "steps": [
+          { "text": "Step 1: Plug Xiaomi Stick into HDMI and power outlet.", "image": "" },
+          { "text": "Step 2: Hold Home + Back buttons to pair remote.", "image": "" }
         ]
       },
       {
-        id: 'guide-1',
-        section: 'guides',
-        title: 'Fixing Stream Buffering & Video Lag',
-        category: 'General',
-        logo: '',
-        summary: 'Optimize buffer and change stream format to HLS.',
-        steps: [
-          { text: 'Step 1: Open player settings.', image: '' },
-          { text: 'Step 2: Change Stream Format to HLS.', image: '' }
+        "id": "guide-1793787498733",
+        "section": "install",
+        "title": "Downloader Installation Guide",
+        "category": "Firestick/Android",
+        "logo": "https://media.brittvhelp.com/Logos/downloader.png",
+        "summary": "Downloader is a free utility application. It is a web browser made especially for Android TV and Google TV users. With it, they will be able to visit and view their favorite websites, as well as download files online straight from their devices.",
+        "steps": [
+          { "text": "Follow this guide to install the Downloader app on your Android TV or Google TV device. Work through the steps in order and use the screenshots as a visual reference.\n\nBefore you start: Make sure your TV or streaming device is connected to the internet.", "image": "" },
+          { "text": "Switch on your Android TV or Google TV device and go to its Home screen.", "image": "https://media.brittvhelp.com/Downloader/step-01.png" },
+          { "text": "Find the Search option on your device. Depending on your model, this may appear as a magnifying-glass icon or within the Apps section.", "image": "https://media.brittvhelp.com/Downloader/step-02.png" },
+          { "text": "Use the on-screen keyboard to enter Downloader. Wait for the search results to appear.", "image": "https://media.brittvhelp.com/Downloader/step-03.png" },
+          { "text": "Select Downloader from the available results. Check that you have selected the intended app before continuing.", "image": "https://media.brittvhelp.com/Downloader/step-04.png" },
+          { "text": "On the app details page, select Install. Wait for the installation to finish. The wording and screen layout may vary between devices.", "image": "https://media.brittvhelp.com/Downloader/step-05.png" },
+          { "text": "When installation is complete, select Open. If you leave the app page, you can usually find Downloader in your device's Apps list.", "image": "https://media.brittvhelp.com/Downloader/step-06.png" },
+          { "text": "The first time you open Downloader, follow any on-screen prompts needed to continue. Read the prompts before accepting them, and grant only permissions that are needed for the feature you intend to use.", "image": "https://media.brittvhelp.com/Downloader/step-07.png" },
+          { "text": "You have successfully installed Downloader app on your Android TV/Google TV device.", "image": "https://media.brittvhelp.com/Downloader/step-08.png" },
+          { "text": "Some Android TV and Google TV devices hide the setting needed to allow apps to be installed from outside the official app store. If you need this setting, follow these steps:\n\nOpen Settings on your TV or streaming device.\nSelect System, then About. On some devices, look under Device Preferences, then About.\nFind Android TV OS build or Build.\nSelect it repeatedly, usually seven times, until a message confirms that you are now a developer.\nReturn to Settings. Developer Options should now be available.", "image": "https://media.brittvhelp.com/Downloader/step-09.png" },
+          { "text": "Only follow this step if you intend to install an app from outside the official Google Play Store.\n\nOpen Settings on your device.\nLook under Apps, then Security & restrictions or Special app access.\nFind Install unknown apps or Unknown sources.\nSelect Downloader and enable the permission, if your device offers it.\nReturn to Downloader when you have finished.\nMenu names vary between manufacturers and software versions. If you cannot find this option, check your device's instructions. Some newer devices may apply additional security checks or delays.\n\nSecurity advice: Allow this permission only when needed, and install apps only from sources you trust. You can switch the permission off again afterwards.", "image": "https://media.brittvhelp.com/Downloader/step-10.png" },
+          { "text": "Installation complete\nDownloader is now installed. You can open it from your device's Apps list whenever you need it.\n\nImportant: Installing Downloader does not mean you need to enable installation from unknown sources. That setting is only relevant if you later choose to install an app from outside the official app store, and the option may not be available on every device.", "image": "" }
         ]
       },
       {
-        id: 'install-1',
-        section: 'install',
-        title: 'Smart STB / IBO Portal Setup for Samsung & LG',
-        category: 'Samsung Tizen',
-        logo: '',
-        summary: 'Portal URL setup and virtual MAC address configuration.',
-        steps: [
-          { text: 'Step 1: Install Smart STB from TV store.', image: '' },
-          { text: 'Step 2: Input Portal URL http://brittvhelp.com/portal', image: '' }
+        "id": "guide-1793788848987",
+        "section": "guides",
+        "title": "Cinema HQ User Guide",
+        "category": "Firestick/Android",
+        "logo": "https://media.brittvhelp.com/Logos/chq.png",
+        "summary": "This guide explains how to open Cinema HQ, browse movies and live TV, select a streaming link, use subtitles and manage your watchlist on a compatible Fire TV/Android device.",
+        "steps": [
+          { "text": "Before you start: Cinema HQ should already be installed. The screen layout and available features can vary between app versions and devices.", "image": "" },
+          { "text": "From the Fire TV Home screen, select the Apps Library icon in the top-right corner, next to Settings.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-2.webp" },
+          { "text": "Find Cinema HQ in your installed apps and select it to launch the application.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-3.webp" },
+          { "text": "If Cinema HQ asks for location or another permission, read the prompt and choose the option appropriate to your needs. The referenced example shows the option While Using the App.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-4.webp" },
+          { "text": "Browse the available sections and select the movie, TV show or live TV (inc Sports) channel you want to view.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-5.webp" },
+          { "text": "On the selected title, choose Watch to continue to the available playback options.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-6.webp" },
+          { "text": "Select one of the available streaming links to try playback.\n\nPlease note: Not all links may play. Availability, quality and reliability can vary by source.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-7.webp" },
+          { "text": "Once a link starts playing successfully, use your Fire TV remote to control playback as supported by the player.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-8.webp" },
+          { "text": "While playing a title, select the subtitles or captions icon next to the settings gear in the top-right corner, if available.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-9.webp" },
+          { "text": "Select your preferred subtitle language from the available options. Language choices depend on the title and source.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-10.webp" },
+          { "text": "To save a movie or show for later, select Watchlist on the relevant title, where that option is available. You can return to your saved titles later.", "image": "https://media.brittvhelp.com/CinemaHQ/use-cinema-hq-on-firestick-15-1.webp" },
+          { "text": "Open the Live TV section to browse its available channel categories. The categories and channels shown may vary by app version and configured sources.\n\nSelect a channel to view its available playback options. Live Sports channels are also here.", "image": "" },
+          { "text": "You're ready to use Cinema HQ\nYou now know the basic steps for browsing content, trying streaming links, enabling subtitles and using your Watchlist.\n\nRemember: Streaming links may stop working or become unavailable. BritTV Help cannot guarantee the availability, quality or legality of third-party sources.", "image": "" }
+        ]
+      },
+      {
+        "id": "guide-1793804568374",
+        "section": "install",
+        "title": "RBTV Installation Guide",
+        "category": "Firestick/Android",
+        "logo": "https://media.brittvhelp.com/Logos/rbtv.png",
+        "summary": "RBTV  offers live broadcasts of popular sports, including football, basketball, baseball, NFL, PPV, etc., for free.",
+        "steps": [
+          { "text": "The RBTV33 app is not available on the official Amazon Appstore. However, you will have to sideload RBTV33 using the Downloader app.", "image": "" },
+          { "text": "Open the Downloader App interface, Click the Search Bar on top", "image": "https://media.brittvhelp.com/Downloader/step-08.png" },
+          { "text": "Enter RBTV33 Downloader Code\n730116 and click Go", "image": "https://media.brittvhelp.com/RBTV/install-rbtv-33-on-firestick-using-downloader-app-20.webp" },
+          { "text": "Scroll down and click “RBTV33” from the “Sports Apps” category.", "image": "https://media.brittvhelp.com/RBTV/rbtv33-apk-on-firestick-1024x576.png" },
+          { "text": "The download will start. Wait for it to finish", "image": "https://media.brittvhelp.com/RBTV/install-rbtv-33-on-firestick-using-downloader-app-22.webp" },
+          { "text": "Once the download ends, click “Install.”", "image": "https://media.brittvhelp.com/RBTV/install-rbtv-33-on-firestick-using-downloader-app-23.webp" },
+          { "text": "Tap the “Done” icon.", "image": "https://media.brittvhelp.com/RBTV/install-rbtv-33-on-firestick-using-downloader-app-24.webp" },
+          { "text": "Click “Delete” to remove the RBTV33 APK file from FireStick.\nNote: Deleting APK files will free up space on FireStick.", "image": "https://media.brittvhelp.com/RBTV/install-rbtv33-on-firestick-5.webp" },
+          { "text": "Tap “Delete” again to complete the process.", "image": "https://media.brittvhelp.com/RBTV/install-rbtv33-on-firestick-6.webp" }
+        ]
+      },
+      {
+        "id": "guide-1793805893688",
+        "section": "guides",
+        "title": "RBTV User Guide",
+        "category": "Firestick/Android",
+        "logo": "https://media.brittvhelp.com/Logos/rbtv.png",
+        "summary": "RBTV offers live broadcasts of popular sports, including football, basketball, baseball, NFL, PPV, etc., for free.",
+        "steps": [
+          { "text": "", "image": "" }
         ]
       }
     ];
@@ -435,6 +484,13 @@
         return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 font-semibold hover:underline break-all">${url} <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></a>`;
       });
     }
+
+    window.toggleMobileMenu = function() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    };
 
     window.switchTab = function(tabId) {
       if (tabId === 'admin' && sessionStorage.getItem('brittv_admin') !== 'true') {
@@ -753,13 +809,6 @@
         toast.classList.remove('translate-y-0', 'opacity-100');
         toast.classList.add('translate-y-20', 'opacity-0');
       }, 3000);
-    };
-
-    window.toggleMobileMenu = function() {
-      const menu = document.getElementById('mobile-menu');
-      if (menu) {
-        menu.classList.toggle('hidden');
-      }
     };
   </script>
 </body>
